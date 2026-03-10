@@ -1,0 +1,1102 @@
+<!doctype html>
+<html lang="id" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ainoen Store - Fashion Muslim Premium</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+        :root {
+            --dark-bg: #121212;
+            --dark-card: #1E1E1E;
+            --dark-green: #0F3D3E;
+            --accent-green: #1F8A70;
+            --text-primary: #F5F5F5;
+            --text-secondary: #CFCFCF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .bg-dark { background-color: var(--dark-bg); }
+        .bg-card { background-color: var(--dark-card); }
+        .bg-dark-green { background-color: var(--dark-green); }
+        .bg-accent { background-color: var(--accent-green); }
+        .text-primary { color: var(--text-primary); }
+        .text-secondary { color: var(--text-secondary); }
+        .border-accent { border-color: var(--accent-green); }
+        
+        .logo-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-green);
+        }
+        
+        .logo-circle-lg {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-green);
+        }
+        
+        .product-card {
+            background: var(--dark-card);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(31, 138, 112, 0.2);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(31, 138, 112, 0.15);
+            border-color: var(--accent-green);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-green), var(--dark-green));
+            color: var(--text-primary);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(31, 138, 112, 0.4);
+        }
+        
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+        
+        .category-card {
+            background: var(--dark-card);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(31, 138, 112, 0.2);
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            background: var(--dark-green);
+            transform: translateY(-5px);
+            border-color: var(--accent-green);
+        }
+        
+        .category-icon {
+            font-size: 2.5rem;
+            color: var(--accent-green);
+            margin-bottom: 12px;
+            transition: transform 0.3s ease;
+        }
+        
+        .category-card:hover .category-icon {
+            transform: scale(1.2);
+        }
+        
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-green);
+            background: rgba(31, 138, 112, 0.1);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-green) 50%, var(--dark-bg) 100%);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-green);
+            border-radius: 2px;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: var(--dark-card);
+            border-radius: 20px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90%;
+            overflow-y: auto;
+            border: 1px solid rgba(31, 138, 112, 0.3);
+        }
+        
+        .badge {
+            background: var(--accent-green);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: var(--dark-card);
+            padding: 20px;
+            border-bottom: 1px solid rgba(31, 138, 112, 0.2);
+            z-index: 999;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: flex !important;
+            }
+            .product-image {
+                height: 200px;
+            }
+            .logo-circle {
+                width: 40px;
+                height: 40px;
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .input-search {
+            background: var(--dark-card);
+            border: 1px solid rgba(31, 138, 112, 0.3);
+            color: var(--text-primary);
+            padding: 12px 16px;
+            border-radius: 8px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .input-search:focus {
+            outline: none;
+            border-color: var(--accent-green);
+            box-shadow: 0 0 0 3px rgba(31, 138, 112, 0.2);
+        }
+        
+        .input-search::placeholder {
+            color: var(--text-secondary);
+        }
+        
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 900;
+            transition: all 0.3s ease;
+            border: none;
+            color: white;
+            font-size: 1.25rem;
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(31, 138, 112, 0.4);
+        }
+        
+        .scroll-top.visible {
+            display: flex;
+        }
+    </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div id="app" class="w-full min-h-full bg-dark"><!-- Navbar -->
+   <nav class="sticky top-0 z-50 bg-card border-b border-opacity-20" style="border-color: rgba(31, 138, 112, 0.2);">
+    <div class="max-w-7xl mx-auto px-4 py-4">
+     <div class="flex items-center justify-between"><!-- Logo --> <a href="#" class="flex items-center gap-3" onclick="navigateTo('home')"> <img src="https://i.imgur.com/SecbNz2.jpeg" alt="Ainoen Store Logo" class="logo-circle" onerror="this.style.background='linear-gradient(135deg, #1F8A70, #0F3D3E)'; this.alt='AS';">
+       <div>
+        <h1 id="nav-store-name" class="font-display text-xl font-bold text-primary">Ainoen Store</h1>
+        <p id="nav-tagline" class="text-xs text-secondary">Fashion Muslim Premium</p>
+       </div></a> <!-- Desktop Navigation -->
+      <div class="desktop-nav hidden md:flex items-center gap-2"><a href="#" class="nav-link active" onclick="navigateTo('home')" data-page="home">Beranda</a> <a href="#" class="nav-link" onclick="navigateTo('products')" data-page="products">Produk</a> <a href="#" class="nav-link" onclick="navigateTo('categories')" data-page="categories">Kategori</a> <a href="#" class="nav-link" onclick="navigateTo('about')" data-page="about">Tentang</a> <a href="#" class="nav-link" onclick="navigateTo('contact')" data-page="contact">Kontak</a>
+      </div><!-- Mobile Menu Button --> <button class="mobile-menu-btn hidden text-primary text-2xl" onclick="toggleMobileMenu()" style="display: none;"> <i class="fas fa-bars" id="menu-icon"></i> </button>
+     </div>
+    </div>
+   </nav><!-- Mobile Menu -->
+   <div class="mobile-menu" id="mobile-menu">
+    <div class="flex flex-col gap-2"><a href="#" class="nav-link active" onclick="navigateTo('home'); toggleMobileMenu();" data-page="home">Beranda</a> <a href="#" class="nav-link" onclick="navigateTo('products'); toggleMobileMenu();" data-page="products">Produk</a> <a href="#" class="nav-link" onclick="navigateTo('categories'); toggleMobileMenu();" data-page="categories">Kategori</a> <a href="#" class="nav-link" onclick="navigateTo('about'); toggleMobileMenu();" data-page="about">Tentang</a> <a href="#" class="nav-link" onclick="navigateTo('contact'); toggleMobileMenu();" data-page="contact">Kontak</a>
+    </div>
+   </div><!-- Main Content -->
+   <main id="main-content" class="w-full"><!-- Home Page -->
+    <div id="page-home" class="page active"><!-- Hero Section -->
+     <section class="hero-gradient py-20 md:py-32">
+      <div class="max-w-7xl mx-auto px-4 text-center"><span class="badge mb-6 inline-block">✨ New Collection 2026</span>
+       <h1 id="hero-title" class="font-display text-4xl md:text-6xl font-bold mb-6 text-primary animate-fade-in">Koleksi Fashion Muslim Premium</h1>
+       <p id="hero-subtitle" class="text-lg md:text-xl text-secondary mb-10 max-w-2xl mx-auto animate-fade-in">Temukan gaya terbaik untuk penampilan Anda dengan koleksi fashion muslim berkualitas tinggi</p>
+       <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in"><button class="btn-primary text-lg" onclick="navigateTo('products')"> <i class="fas fa-shopping-bag mr-2"></i> Lihat Koleksi </button> <button class="btn-whatsapp text-lg" onclick="openWhatsApp()"> <i class="fab fa-whatsapp"></i> Hubungi Kami </button>
+       </div>
+      </div>
+     </section><!-- Categories Section -->
+     <section class="py-16 md:py-24 bg-dark">
+      <div class="max-w-7xl mx-auto px-4">
+       <h2 class="font-display text-3xl md:text-4xl font-bold mb-12 section-title">Kategori Produk</h2>
+       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6" id="categories-grid"><!-- Categories will be rendered here -->
+       </div>
+      </div>
+     </section><!-- Featured Products -->
+     <section class="py-16 md:py-24 bg-card">
+      <div class="max-w-7xl mx-auto px-4">
+       <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-4">
+        <h2 class="font-display text-3xl md:text-4xl font-bold section-title">Produk Unggulan</h2><button class="btn-primary" onclick="navigateTo('products')"> Lihat Semua <i class="fas fa-arrow-right ml-2"></i> </button>
+       </div>
+       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="featured-products"><!-- Featured products will be rendered here -->
+       </div>
+      </div>
+     </section><!-- Why Choose Us -->
+     <section class="py-16 md:py-24 bg-dark">
+      <div class="max-w-7xl mx-auto px-4">
+       <h2 class="font-display text-3xl md:text-4xl font-bold mb-12 text-center">Mengapa Memilih Kami?</h2>
+       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center p-8 bg-card rounded-2xl border border-opacity-20" style="border-color: rgba(31, 138, 112, 0.2);">
+         <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-dark-green flex items-center justify-center"><i class="fas fa-award text-3xl" style="color: var(--accent-green);"></i>
+         </div>
+         <h3 class="font-display text-xl font-bold mb-4">Kualitas Premium</h3>
+         <p class="text-secondary">Bahan berkualitas tinggi dengan jahitan rapi dan detail yang sempurna</p>
+        </div>
+        <div class="text-center p-8 bg-card rounded-2xl border border-opacity-20" style="border-color: rgba(31, 138, 112, 0.2);">
+         <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-dark-green flex items-center justify-center"><i class="fas fa-truck-fast text-3xl" style="color: var(--accent-green);"></i>
+         </div>
+         <h3 class="font-display text-xl font-bold mb-4">Pengiriman Cepat</h3>
+         <p class="text-secondary">Pengiriman ke seluruh Indonesia dengan packaging yang aman</p>
+        </div>
+        <div class="text-center p-8 bg-card rounded-2xl border border-opacity-20" style="border-color: rgba(31, 138, 112, 0.2);">
+         <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-dark-green flex items-center justify-center"><i class="fas fa-headset text-3xl" style="color: var(--accent-green);"></i>
+         </div>
+         <h3 class="font-display text-xl font-bold mb-4">Pelayanan Terbaik</h3>
+         <p class="text-secondary">Customer service responsif siap membantu Anda kapanpun</p>
+        </div>
+       </div>
+      </div>
+     </section>
+    </div><!-- Products Page -->
+    <div id="page-products" class="page" style="display: none;">
+     <section class="py-12 md:py-16 bg-dark">
+      <div class="max-w-7xl mx-auto px-4">
+       <h1 class="font-display text-3xl md:text-4xl font-bold mb-8 section-title">Semua Produk</h1><!-- Filter & Search -->
+       <div class="flex flex-col md:flex-row gap-4 mb-10">
+        <div class="flex-1"><input type="text" class="input-search" placeholder="Cari produk..." id="search-input" onkeyup="filterProducts()">
+        </div>
+        <div class="flex gap-2 flex-wrap"><button class="btn-primary category-filter active" data-category="all" onclick="filterByCategory('all')">Semua</button> <button class="btn-primary category-filter" data-category="sarung" onclick="filterByCategory('sarung')">Sarung</button> <button class="btn-primary category-filter" data-category="peci" onclick="filterByCategory('peci')">Peci</button> <button class="btn-primary category-filter" data-category="hijab" onclick="filterByCategory('hijab')">Hijab</button> <button class="btn-primary category-filter" data-category="koko" onclick="filterByCategory('koko')">Baju Koko</button> <button class="btn-primary category-filter" data-category="kemeja" onclick="filterByCategory('kemeja')">Kemeja</button> <button class="btn-primary category-filter" data-category="gamis" onclick="filterByCategory('gamis')">Gamis</button>
+        </div>
+       </div>
+       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="all-products"><!-- All products will be rendered here -->
+       </div>
+      </div>
+     </section>
+    </div><!-- Categories Page -->
+    <div id="page-categories" class="page" style="display: none;">
+     <section class="py-12 md:py-16 bg-dark">
+      <div class="max-w-7xl mx-auto px-4">
+       <h1 class="font-display text-3xl md:text-4xl font-bold mb-8 section-title">Kategori Produk</h1>
+       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="categories-page-grid"><!-- Categories with products count will be rendered here -->
+       </div>
+      </div>
+     </section>
+    </div><!-- About Page -->
+    <div id="page-about" class="page" style="display: none;">
+     <section class="py-12 md:py-16 bg-dark">
+      <div class="max-w-4xl mx-auto px-4">
+       <div class="text-center mb-12"><img src="https://i.imgur.com/SecbNz2.jpeg" alt="Ainoen Store Logo" class="logo-circle-lg mx-auto mb-6" onerror="this.style.background='linear-gradient(135deg, #1F8A70, #0F3D3E)'; this.alt='AS';">
+        <h1 id="about-store-name" class="font-display text-3xl md:text-4xl font-bold mb-4">Ainoen Store</h1>
+        <p class="text-secondary text-lg">Fashion Muslim Premium Terpercaya</p>
+       </div>
+       <div class="bg-card rounded-2xl p-8 md:p-12 border border-opacity-20" style="border-color: rgba(31, 138, 112, 0.2);">
+        <h2 class="font-display text-2xl font-bold mb-6 section-title">Tentang Kami</h2>
+        <p class="text-secondary leading-relaxed mb-6"><strong class="text-primary">Ainoen Store</strong> adalah toko fashion muslim yang menyediakan berbagai koleksi pakaian muslim berkualitas premium dengan desain modern dan elegan. Kami berkomitmen untuk menghadirkan produk-produk terbaik yang menggabungkan nilai-nilai islami dengan gaya kontemporer.</p>
+        <p class="text-secondary leading-relaxed mb-6">Didirikan dengan semangat untuk memberikan pilihan fashion muslim yang stylish namun tetap syar'i, kami terus berinovasi menghadirkan koleksi-koleksi terbaru yang sesuai dengan tren fashion terkini.</p>
+        <h3 class="font-display text-xl font-bold mb-4 mt-10">Visi Kami</h3>
+        <p class="text-secondary leading-relaxed mb-6">Menjadi destinasi utama fashion muslim premium di Indonesia dengan menghadirkan produk berkualitas tinggi dan pelayanan terbaik.</p>
+        <h3 class="font-display text-xl font-bold mb-4">Misi Kami</h3>
+        <ul class="text-secondary space-y-3">
+         <li class="flex items-start gap-3"><i class="fas fa-check-circle mt-1" style="color: var(--accent-green);"></i> <span>Menyediakan produk fashion muslim berkualitas premium</span></li>
+         <li class="flex items-start gap-3"><i class="fas fa-check-circle mt-1" style="color: var(--accent-green);"></i> <span>Memberikan pelayanan yang ramah dan responsif</span></li>
+         <li class="flex items-start gap-3"><i class="fas fa-check-circle mt-1" style="color: var(--accent-green);"></i> <span>Menghadirkan desain modern yang sesuai syariat Islam</span></li>
+         <li class="flex items-start gap-3"><i class="fas fa-check-circle mt-1" style="color: var(--accent-green);"></i> <span>Membangun kepercayaan melalui kualitas dan integritas</span></li>
+        </ul>
+       </div>
+      </div>
+     </section>
+    </div><!-- Contact Page -->
+    <div id="page-contact" class="page" style="display: none;">
+     <section class="py-12 md:py-16 bg-dark">
+      <div class="max-w-4xl mx-auto px-4">
+       <h1 class="font-display text-3xl md:text-4xl font-bold mb-8 text-center">Hubungi Kami</h1>
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-card rounded-2xl p-8 border border-opacity-20" style="border-color: rgba(31, 138, 112, 0.2);">
+         <h2 class="font-display text-xl font-bold mb-6">Informasi Kontak</h2>
+         <div class="space-y-6">
+          <div class="flex items-start gap-4">
+           <div class="w-12 h-12 rounded-full bg-dark-green flex items-center justify-center flex-shrink-0"><i class="fab fa-whatsapp text-xl" style="color: var(--accent-green);"></i>
+           </div>
+           <div>
+            <h3 class="font-semibold mb-1">WhatsApp</h3>
+            <p class="text-secondary" id="contact-whatsapp">+62 856 0856 9353</p>
+           </div>
+          </div>
+          <div class="flex items-start gap-4">
+           <div class="w-12 h-12 rounded-full bg-dark-green flex items-center justify-center flex-shrink-0"><i class="fas fa-envelope text-xl" style="color: var(--accent-green);"></i>
+           </div>
+           <div>
+            <h3 class="font-semibold mb-1">Email</h3>
+            <p class="text-secondary">ain0entawun@gmail.com</p>
+           </div>
+          </div>
+          <div class="flex items-start gap-4">
+           <div class="w-12 h-12 rounded-full bg-dark-green flex items-center justify-center flex-shrink-0"><i class="fas fa-clock text-xl" style="color: var(--accent-green);"></i>
+           </div>
+           <div>
+            <h3 class="font-semibold mb-1">Jam Operasional</h3>
+            <p class="text-secondary">Senin - Sabtu: 08:00 - 21:00</p>
+            <p class="text-secondary">Minggu: 09:00 - 18:00</p>
+           </div>
+          </div>
+          <div class="flex items-start gap-4">
+           <div class="w-12 h-12 rounded-full bg-dark-green flex items-center justify-center flex-shrink-0"><i class="fas fa-map-marker-alt text-xl" style="color: var(--accent-green);"></i>
+           </div>
+           <div>
+            <h3 class="font-semibold mb-1">Lokasi</h3>
+            <p class="text-secondary">Tawun, Kumpulrejo, bangilan, Tuban</p>
+           </div>
+          </div>
+         </div><button class="btn-whatsapp w-full mt-8" onclick="openWhatsApp()"> <i class="fab fa-whatsapp"></i> Chat WhatsApp Sekarang </button>
+        </div>
+        <div class="bg-card rounded-2xl p-8 border border-opacity-20" style="border-color: rgba(31, 138, 112, 0.2);">
+         <h2 class="font-display text-xl font-bold mb-6">Ikuti Kami</h2>
+         <div class="grid grid-cols-2 gap-4"><a href="https://www.instagram.com/ain0en_/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-4 bg-dark rounded-xl hover:bg-dark-green transition-all"> <i class="fab fa-instagram text-2xl" style="color: var(--accent-green);"></i> <span>Instagram</span> </a> <a href="https://web.facebook.com/Ain0en" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-4 bg-dark rounded-xl hover:bg-dark-green transition-all"> <i class="fab fa-facebook text-2xl" style="color: var(--accent-green);"></i> <span>Facebook</span> </a> <a href="https://www.tiktok.com/@ain0en_" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-4 bg-dark rounded-xl hover:bg-dark-green transition-all"> <i class="fab fa-tiktok text-2xl" style="color: var(--accent-green);"></i> <span>TikTok</span> </a> <a href="https://www.youtube.com/@KetikaMalamMulaiBicara" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-4 bg-dark rounded-xl hover:bg-dark-green transition-all"> <i class="fab fa-youtube text-2xl" style="color: var(--accent-green);"></i> <span>YouTube</span> </a>
+         </div>
+         <div class="mt-8 p-6 bg-dark rounded-xl text-center"><i class="fas fa-heart text-3xl mb-4" style="color: var(--accent-green);"></i>
+          <p class="text-secondary">Terima kasih telah mengunjungi Ainoen Store. Kami siap melayani kebutuhan fashion muslim Anda!</p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </section>
+    </div>
+   </main><!-- Footer -->
+   <footer class="bg-card border-t border-opacity-20 py-12" style="border-color: rgba(31, 138, 112, 0.2);">
+    <div class="max-w-7xl mx-auto px-4">
+     <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <div class="col-span-1 md:col-span-2">
+       <div class="flex items-center gap-3 mb-4"><img src="https://i.imgur.com/SecbNz2.jpeg" alt="Ainoen Store Logo" class="logo-circle" onerror="this.style.background='linear-gradient(135deg, #1F8A70, #0F3D3E)'; this.alt='AS';">
+        <div>
+         <h3 id="footer-store-name" class="font-display text-xl font-bold">Ainoen Store</h3>
+         <p class="text-secondary text-sm">Fashion Muslim Premium</p>
+        </div>
+       </div>
+       <p class="text-secondary mb-4 max-w-md">Toko fashion muslim premium dengan koleksi terlengkap dan berkualitas tinggi. Belanja mudah via WhatsApp.</p>
+       <div class="flex gap-4"><a href="https://www.instagram.com/ain0en_/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-dark-green flex items-center justify-center hover:bg-accent transition-all"> <i class="fab fa-instagram" style="color: var(--text-primary);"></i> </a> <a href="https://web.facebook.com/Ain0en" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-dark-green flex items-center justify-center hover:bg-accent transition-all"> <i class="fab fa-facebook" style="color: var(--text-primary);"></i> </a> <a href="https://www.tiktok.com/@ain0en_" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-dark-green flex items-center justify-center hover:bg-accent transition-all"> <i class="fab fa-tiktok" style="color: var(--text-primary);"></i> </a>
+       </div>
+      </div>
+      <div>
+       <h4 class="font-display font-bold mb-4">Navigasi</h4>
+       <ul class="space-y-2">
+        <li><a href="#" onclick="navigateTo('home')" class="text-secondary hover:text-primary transition-colors">Beranda</a></li>
+        <li><a href="#" onclick="navigateTo('products')" class="text-secondary hover:text-primary transition-colors">Produk</a></li>
+        <li><a href="#" onclick="navigateTo('categories')" class="text-secondary hover:text-primary transition-colors">Kategori</a></li>
+        <li><a href="#" onclick="navigateTo('about')" class="text-secondary hover:text-primary transition-colors">Tentang</a></li>
+        <li><a href="#" onclick="navigateTo('contact')" class="text-secondary hover:text-primary transition-colors">Kontak</a></li>
+       </ul>
+      </div>
+      <div>
+       <h4 class="font-display font-bold mb-4">Kategori</h4>
+       <ul class="space-y-2">
+        <li><a href="#" onclick="navigateTo('products'); filterByCategory('sarung');" class="text-secondary hover:text-primary transition-colors">Sarung</a></li>
+        <li><a href="#" onclick="navigateTo('products'); filterByCategory('peci');" class="text-secondary hover:text-primary transition-colors">Peci</a></li>
+        <li><a href="#" onclick="navigateTo('products'); filterByCategory('hijab');" class="text-secondary hover:text-primary transition-colors">Hijab</a></li>
+        <li><a href="#" onclick="navigateTo('products'); filterByCategory('koko');" class="text-secondary hover:text-primary transition-colors">Baju Koko</a></li>
+        <li><a href="#" onclick="navigateTo('products'); filterByCategory('gamis');" class="text-secondary hover:text-primary transition-colors">Gamis</a></li>
+       </ul>
+      </div>
+     </div>
+     <div class="border-t border-opacity-20 pt-8 text-center" style="border-color: rgba(31, 138, 112, 0.2);">
+      <p class="text-secondary text-sm">© 2024 Ainoen Store. All rights reserved. Made with <i class="fas fa-heart" style="color: var(--accent-green);"></i> in Indonesia</p>
+     </div>
+    </div>
+   </footer><!-- Product Detail Modal -->
+   <div class="modal" id="product-modal">
+    <div class="modal-content">
+     <div class="relative"><button class="absolute top-4 right-4 w-10 h-10 rounded-full bg-dark flex items-center justify-center text-primary hover:bg-dark-green transition-all z-10" onclick="closeModal()"> <i class="fas fa-times"></i> </button>
+      <div id="modal-content-inner"><!-- Modal content will be rendered here -->
+      </div>
+     </div>
+    </div>
+   </div><!-- Scroll to Top Button --> <button class="scroll-top" id="scroll-top" onclick="scrollToTop()"> <i class="fas fa-chevron-up"></i> </button>
+  </div>
+  <script>
+        // ============================================
+        // KONFIGURASI TOKO - EDIT DI SINI
+        // ============================================
+        
+        const defaultConfig = {
+            store_name: "Ainoen Store",
+            store_tagline: "Fashion Muslim Premium",
+            whatsapp_number: "6285608569353", // Ganti dengan nomor WhatsApp Anda
+            hero_title: "Koleksi Fashion Muslim Premium",
+            hero_subtitle: "Temukan gaya terbaik untuk penampilan Anda dengan koleksi fashion muslim berkualitas tinggi"
+        };
+        
+        // ============================================
+        // DATA KATEGORI - EDIT DI SINI UNTUK MENAMBAH KATEGORI
+        // ============================================
+        
+        const categories = [
+            { id: "sarung", name: "Sarung", icon: "fa-scroll", description: "Koleksi sarung premium dengan berbagai motif" },
+            { id: "peci", name: "Peci", icon: "fa-hat-cowboy", description: "Peci berkualitas untuk melengkapi penampilan" },
+            { id: "hijab", name: "Hijab", icon: "fa-user-tie", description: "Hijab stylish untuk wanita muslimah" },
+            { id: "koko", name: "Baju Koko", icon: "fa-shirt", description: "Baju koko modern dan elegan" },
+            { id: "kemeja", name: "Kemeja", icon: "fa-tshirt", description: "Kemeja muslim trendy untuk pria" },
+            { id: "gamis", name: "Gamis", icon: "fa-person-dress", description: "Gamis cantik untuk berbagai acara" }
+        ];
+        
+        // ============================================
+        // DATA PRODUK - EDIT DI SINI UNTUK MENAMBAH PRODUK
+        // ============================================
+        
+        const products = [
+            {
+                id: 1,
+                name: "Sarung ardan batik abs 1",
+                price: 85000,
+                category: "sarung",
+                image: "https://i.imgur.com/V71esCT.jpeg",
+                description: "Sarung tenun premium dengan motif batik josjis yang elegan. Bahan berkualitas tinggi, nyaman dipakai untuk ibadah maupun acara formal.",
+                featured: true,
+                stock: 15
+            },
+            {
+                id: 2,
+                name: "Peci Songkok Hitam Polos",
+                price: 0,
+                category: "peci",
+                image: "https://i.imgur.com/vjvfsAb.png",
+                description: "Peci songkok hitam polos dengan bahan beludru berkualitas. Nyaman dipakai dan cocok untuk berbagai acara.",
+                featured: true,
+                stock: 30
+            },
+            {
+                id: 3,
+                name: "Hijab Pashmina Satin Premium",
+                price: 0,
+                category: "hijab",
+                image: "https://i.imgur.com/vjvfsAb.png",
+                description: "Hijab pashmina berbahan satin premium yang lembut dan jatuh sempurna. Tersedia dalam berbagai warna.",
+                featured: true,
+                stock: 25
+            },
+            {
+                id: 4,
+                name: "Baju Koko Lengan Panjang Modern",
+                price: 0,
+                category: "koko",
+                image: "https://i.imgur.com/vjvfsAb.png",
+                description: "Baju koko lengan panjang dengan desain modern dan minimalis. Bahan katun premium yang adem dan nyaman.",
+                featured: true,
+                stock: 20
+            },
+            {
+                id: 5,
+                name: "Kemeja Muslim Slim Fit",
+                price: 0,
+                category: "kemeja",
+                image: "https://i.imgur.com/vjvfsAb.png",
+                description: "Kemeja muslim dengan potongan slim fit yang stylish. Cocok untuk acara formal maupun casual.",
+                featured: false,
+                stock: 18
+            },
+            {
+                id: 6,
+                name: "Gamis Syari Elegant Collection",
+                price: 0,
+                category: "gamis",
+                image: "https://i.imgur.com/vjvfsAb.png",
+                description: "Gamis syari dengan desain elegant dan detail bordir yang cantik. Bahan wolfis premium yang adem.",
+                featured: true,
+                stock: 12
+            },
+            {
+                id: 7,
+                name: "Sarung Wadimor Motif Batik",
+                price: 0,
+                category: "sarung",
+                image: "https://i.imgur.com/vjvfsAb.png",
+                description: "Sarung Wadimor dengan motif batik khas Indonesia. Bahan halus dan tidak mudah kusut.",
+                featured: false,
+                stock: 22
+            },
+            {
+                id: 8,
+                name: "Peci Bordir Gold Premium",
+                price: 0,
+                category: "peci",
+                image: "https://i.imgur.com/vjvfsAb.png",
+                description: "Peci dengan bordir gold yang elegan. Cocok untuk acara pernikahan atau pengajian.",
+                featured: false,
+                stock: 15
+            },
+            {
+                id: 9,
+                name: "Hijab Segiempat Voal Premium",
+                price: 0,
+                category: "hijab",
+                image: "https://i.imgur.com/vjvfsAb.png",
+                description: "Hijab segiempat berbahan voal premium yang ringan dan mudah dibentuk. Warna tidak mudah luntur.",
+                featured: false,
+                stock: 35
+            },
+            {
+                id: 10,
+                name: "Baju Koko Anak Premium",
+                price: 0,
+                category: "koko",
+                image: "https://i.imgur.com/vjvfsAb.png",
+                description: "Baju koko untuk anak dengan desain lucu dan bahan yang nyaman. Tersedia berbagai ukuran.",
+                featured: false,
+                stock: 28
+            },
+            {
+                id: 11,
+                name: "Gamis Casual Daily Wear",
+                price: 0,
+                category: "gamis",
+                image: "https://i.imgur.com/vjvfsAb.png",
+                description: "Gamis casual yang cocok untuk aktivitas sehari-hari. Desain simpel namun tetap stylish.",
+                featured: false,
+                stock: 18
+            },
+            {
+                id: 12,
+                name: "Kemeja Batik Muslim Modern",
+                price: 0,
+                category: "kemeja",
+                image: "https://i.imgur.com/vjvfsAb.png",
+                description: "Kemeja batik dengan sentuhan modern. Perpaduan budaya dan gaya kontemporer.",
+                featured: false,
+                stock: 14
+            }
+        ];
+        
+        // ============================================
+        // VARIABEL GLOBAL
+        // ============================================
+        
+        let currentPage = 'home';
+        let currentCategory = 'all';
+        let config = { ...defaultConfig };
+        
+        // ============================================
+        // FUNGSI SDK
+        // ============================================
+        
+        async function initSDK() {
+            if (window.elementSdk) {
+                window.elementSdk.init({
+                    defaultConfig,
+                    onConfigChange: async (newConfig) => {
+                        config = { ...defaultConfig, ...newConfig };
+                        updateUI();
+                    },
+                    mapToCapabilities: (cfg) => ({
+                        recolorables: [],
+                        borderables: [],
+                        fontEditable: undefined,
+                        fontSizeable: undefined
+                    }),
+                    mapToEditPanelValues: (cfg) => new Map([
+                        ["store_name", cfg.store_name || defaultConfig.store_name],
+                        ["store_tagline", cfg.store_tagline || defaultConfig.store_tagline],
+                        ["whatsapp_number", cfg.whatsapp_number || defaultConfig.whatsapp_number],
+                        ["hero_title", cfg.hero_title || defaultConfig.hero_title],
+                        ["hero_subtitle", cfg.hero_subtitle || defaultConfig.hero_subtitle]
+                    ])
+                });
+            }
+        }
+        
+        // ============================================
+        // FUNGSI UPDATE UI
+        // ============================================
+        
+        function updateUI() {
+            // Update store name
+            const navStoreName = document.getElementById('nav-store-name');
+            if (navStoreName) navStoreName.textContent = config.store_name;
+            
+            const footerStoreName = document.getElementById('footer-store-name');
+            if (footerStoreName) footerStoreName.textContent = config.store_name;
+            
+            const aboutStoreName = document.getElementById('about-store-name');
+            if (aboutStoreName) aboutStoreName.textContent = config.store_name;
+            
+            // Update tagline
+            const navTagline = document.getElementById('nav-tagline');
+            if (navTagline) navTagline.textContent = config.store_tagline;
+            
+            // Update hero
+            const heroTitle = document.getElementById('hero-title');
+            if (heroTitle) heroTitle.textContent = config.hero_title;
+            
+            const heroSubtitle = document.getElementById('hero-subtitle');
+            if (heroSubtitle) heroSubtitle.textContent = config.hero_subtitle;
+            
+            // Update contact WhatsApp
+            const contactWhatsapp = document.getElementById('contact-whatsapp');
+            if (contactWhatsapp) {
+                const formattedNumber = formatPhoneNumber(config.whatsapp_number);
+                contactWhatsapp.textContent = formattedNumber;
+            }
+        }
+        
+        // ============================================
+        // FUNGSI FORMAT
+        // ============================================
+        
+        function formatPrice(price) {
+            return new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR',
+                minimumFractionDigits: 0
+            }).format(price);
+        }
+        
+        function formatPhoneNumber(number) {
+            const cleaned = number.replace(/\D/g, '');
+            if (cleaned.startsWith('62')) {
+                return '+' + cleaned.slice(0, 2) + ' ' + cleaned.slice(2, 5) + ' ' + cleaned.slice(5, 9) + ' ' + cleaned.slice(9);
+            }
+            return number;
+        }
+        
+        // ============================================
+        // FUNGSI NAVIGASI
+        // ============================================
+        
+        function navigateTo(page) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(p => {
+                p.style.display = 'none';
+                p.classList.remove('active');
+            });
+            
+            // Show target page
+            const targetPage = document.getElementById(`page-${page}`);
+            if (targetPage) {
+                targetPage.style.display = 'block';
+                targetPage.classList.add('active');
+            }
+            
+            // Update nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.dataset.page === page) {
+                    link.classList.add('active');
+                }
+            });
+            
+            currentPage = page;
+            window.scrollTo(0, 0);
+        }
+        
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('active');
+            
+            if (menu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+        
+        // ============================================
+        // FUNGSI RENDER
+        // ============================================
+        
+        function renderCategories() {
+            const grid = document.getElementById('categories-grid');
+            if (!grid) return;
+            
+            grid.innerHTML = categories.map(cat => `
+                <div class="category-card" onclick="navigateTo('products'); setTimeout(() => filterByCategory('${cat.id}'), 100);">
+                    <i class="fas ${cat.icon} category-icon"></i>
+                    <h3 class="font-semibold text-primary">${cat.name}</h3>
+                </div>
+            `).join('');
+        }
+        
+        function renderCategoriesPage() {
+            const grid = document.getElementById('categories-page-grid');
+            if (!grid) return;
+            
+            grid.innerHTML = categories.map(cat => {
+                const productCount = products.filter(p => p.category === cat.id).length;
+                return `
+                    <div class="bg-card rounded-2xl p-8 border border-opacity-20 hover:border-accent transition-all cursor-pointer" style="border-color: rgba(31, 138, 112, 0.2);" onclick="navigateTo('products'); setTimeout(() => filterByCategory('${cat.id}'), 100);">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-16 h-16 rounded-full bg-dark-green flex items-center justify-center">
+                                <i class="fas ${cat.icon} text-2xl" style="color: var(--accent-green);"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-display text-xl font-bold">${cat.name}</h3>
+                                <p class="text-secondary text-sm">${productCount} Produk</p>
+                            </div>
+                        </div>
+                        <p class="text-secondary">${cat.description}</p>
+                        <button class="btn-primary mt-4 w-full">
+                            Lihat Produk <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        function renderProductCard(product) {
+            const category = categories.find(c => c.id === product.category);
+            return `
+                <div class="product-card" data-category="${product.category}">
+                    <div class="relative overflow-hidden">
+                        <img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy" onerror="this.style.background='linear-gradient(135deg, #1F8A70, #0F3D3E)'; this.alt='Image unavailable';">
+                        ${product.featured ? '<span class="absolute top-4 left-4 badge">Unggulan</span>' : ''}
+                        <span class="absolute top-4 right-4 badge" style="background: var(--dark-green);">${category ? category.name : ''}</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display font-bold text-lg mb-2 text-primary line-clamp-2">${product.name}</h3>
+                        <p class="text-2xl font-bold mb-4" style="color: var(--accent-green);">${formatPrice(product.price)}</p>
+                        <p class="text-secondary text-sm mb-4 line-clamp-2">${product.description}</p>
+                        <div class="flex gap-2">
+                            <button class="btn-primary flex-1 text-sm py-3" onclick="openProductDetail(${product.id})">
+                                <i class="fas fa-eye mr-1"></i> Detail
+                            </button>
+                            <button class="btn-whatsapp flex-1 text-sm py-3" onclick="orderProduct(${product.id})">
+                                <i class="fab fa-whatsapp"></i> Pesan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function renderFeaturedProducts() {
+            const container = document.getElementById('featured-products');
+            if (!container) return;
+            
+            const featured = products.filter(p => p.featured).slice(0, 4);
+            container.innerHTML = featured.map(p => renderProductCard(p)).join('');
+        }
+        
+        function renderAllProducts() {
+            const container = document.getElementById('all-products');
+            if (!container) return;
+            
+            container.innerHTML = products.map(p => renderProductCard(p)).join('');
+        }
+        
+        // ============================================
+        // FUNGSI FILTER
+        // ============================================
+        
+        function filterByCategory(category) {
+            currentCategory = category;
+            
+            // Update filter buttons
+            document.querySelectorAll('.category-filter').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.category === category) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Filter products
+            const container = document.getElementById('all-products');
+            if (!container) return;
+            
+            const cards = container.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+        
+        function filterProducts() {
+            const searchInput = document.getElementById('search-input');
+            const searchTerm = searchInput.value.toLowerCase();
+            
+            const container = document.getElementById('all-products');
+            if (!container) return;
+            
+            const cards = container.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                const productName = card.querySelector('h3').textContent.toLowerCase();
+                const matchesSearch = productName.includes(searchTerm);
+                const matchesCategory = currentCategory === 'all' || card.dataset.category === currentCategory;
+                
+                if (matchesSearch && matchesCategory) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+        
+        // ============================================
+        // FUNGSI DETAIL PRODUK
+        // ============================================
+        
+        function openProductDetail(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            const category = categories.find(c => c.id === product.category);
+            const modal = document.getElementById('product-modal');
+            const content = document.getElementById('modal-content-inner');
+            
+            content.innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="relative">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-64 md:h-full object-cover" loading="lazy" onerror="this.style.background='linear-gradient(135deg, #1F8A70, #0F3D3E)'; this.alt='Image unavailable';">
+                        ${product.featured ? '<span class="absolute top-4 left-4 badge">Unggulan</span>' : ''}
+                    </div>
+                    <div class="p-8">
+                        <span class="badge mb-4 inline-block">${category ? category.name : ''}</span>
+                        <h2 class="font-display text-2xl md:text-3xl font-bold mb-4 text-primary">${product.name}</h2>
+                        <p class="text-3xl font-bold mb-6" style="color: var(--accent-green);">${formatPrice(product.price)}</p>
+                        <p class="text-secondary mb-6 leading-relaxed">${product.description}</p>
+                        
+                        <div class="flex items-center gap-4 mb-6 p-4 bg-dark rounded-xl">
+                            <i class="fas fa-box text-xl" style="color: var(--accent-green);"></i>
+                            <div>
+                                <p class="text-sm text-secondary">Stok Tersedia</p>
+                                <p class="font-bold">${product.stock} unit</p>
+                            </div>
+                        </div>
+                        
+                        <button class="btn-whatsapp w-full text-lg py-4" onclick="orderProduct(${product.id}); closeModal();">
+                            <i class="fab fa-whatsapp"></i> Pesan via WhatsApp
+                        </button>
+                        
+                        <div class="mt-6 flex items-center gap-4 text-secondary text-sm">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-shield-check" style="color: var(--accent-green);"></i>
+                                <span>100% Original</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-truck" style="color: var(--accent-green);"></i>
+                                <span>Fast Delivery</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('product-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal on outside click
+        document.getElementById('product-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
+        // ============================================
+        // FUNGSI WHATSAPP
+        // ============================================
+        
+        function openWhatsApp(message = '') {
+            const whatsappNumber = config.whatsapp_number || defaultConfig.whatsapp_number;
+            const defaultMessage = message || `Halo ${config.store_name}, saya tertarik dengan produk Anda. Bisakah Anda memberikan informasi lebih lanjut?`;
+            const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(defaultMessage)}`;
+            window.open(url, '_blank');
+        }
+        
+        function orderProduct(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            const whatsappNumber = config.whatsapp_number || defaultConfig.whatsapp_number;
+            const message = `Halo ${config.store_name}, saya ingin memesan produk:
+
+Nama Produk: ${product.name}
+Harga: ${formatPrice(product.price)}
+
+Mohon informasi lebih lanjut untuk proses pemesanan. Terima kasih!`;
+            
+            const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+        
+        // ============================================
+        // FUNGSI SCROLL
+        // ============================================
+        
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.addEventListener('scroll', function() {
+            const scrollTopBtn = document.getElementById('scroll-top');
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+        
+        // ============================================
+        // INISIALISASI
+        // ============================================
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            renderCategories();
+            renderCategoriesPage();
+            renderFeaturedProducts();
+            renderAllProducts();
+            updateUI();
+        });
+        
+        // Initialize SDK
+        initSDK();
+        
+        // Handle responsive menu button visibility
+        function checkMobileView() {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            if (window.innerWidth <= 768) {
+                menuBtn.style.display = 'flex';
+            } else {
+                menuBtn.style.display = 'none';
+                document.getElementById('mobile-menu').classList.remove('active');
+            }
+        }
+        
+        window.addEventListener('resize', checkMobileView);
+        checkMobileView();
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9da38868e00af93e',t:'MTc3MzE1ODQzMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
